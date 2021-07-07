@@ -10,7 +10,7 @@ const Products = () => {
             <h1>
                 <center>Product ID: {pathData.id}</center>
             </h1>
-            <main>stop
+            <main>
                 <br />
                 <center>
                     <Link href="/"><a>Home</a></Link> |
