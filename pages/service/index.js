@@ -14,7 +14,8 @@ export default function Service() {
                     <Link href="/"><a>Home</a></Link> |
                     <Link href="/about"><a> About</a></Link> |
                     <Link href="/service"><a> Service</a></Link> |
-                    <Link href="/products/P001"><a> Products</a></Link>
+                    <Link href="/products/P001"><a> Products</a></Link> |
+                    <Link href="/components"><a> Components</a></Link>
                 </center>
             </main>
         </div>

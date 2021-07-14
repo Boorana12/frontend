@@ -1,12 +1,19 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react';
-import { Button, Box, ButtonGroup,Checkbox,makeStyles,Fab} from '@material-ui/core';  
+import { Button, Box, ButtonGroup, Fab } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import Checkbox from '@material-ui/core/Checkbox';
 import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import NavigationIcon from '@material-ui/icons/Navigation';
 import TextField from '@material-ui/core/TextField';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,8 +34,17 @@ const useStyles = makeStyles((theme) => ({
     width: 200,
   },
 }));
+
 export default function Home() {
+  const [value, setValue] = React.useState('female');
+  const [checked, setChecked] = React.useState(true);
   const classes = useStyles();
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+    setValue(event.target.value);
+  };
+
   return (
     <div>
       <Head>
@@ -40,6 +56,7 @@ export default function Home() {
         <title>รับออกแบบและพัฒนาเว็บไซต์</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
       </Head>
 
 
@@ -50,7 +67,8 @@ export default function Home() {
           <Link href="/"><a>Home</a></Link> |
           <Link href="/about"><a> About</a></Link> |
           <Link href="/service"><a> Service</a></Link> |
-          <Link href="/products/P001"><a> Products</a></Link>
+          <Link href="/products/P001"><a> Products</a></Link> |
+          <Link href="/components"><a> Components</a></Link>
           <br />
           <Button variant="contained" color="primary">
             Hello World
@@ -100,6 +118,47 @@ export default function Home() {
               }}
             />
           </form>
+          <br />
+          <div>
+            <Checkbox
+              checked={checked}
+              onChange={handleChange}
+              inputProps={{ 'aria-label': 'primary checkbox' }}
+            />
+            <Checkbox
+              defaultChecked
+              color="primary"
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
+            <Checkbox inputProps={{ 'aria-label': 'uncontrolled-checkbox' }} />
+            <Checkbox disabled inputProps={{ 'aria-label': 'disabled checkbox' }} />
+            <Checkbox disabled checked inputProps={{ 'aria-label': 'disabled checked checkbox' }} />
+            <Checkbox
+              defaultChecked
+              indeterminate
+              inputProps={{ 'aria-label': 'indeterminate checkbox' }}
+            />
+            <Checkbox
+              defaultChecked
+              color="default"
+              inputProps={{ 'aria-label': 'checkbox with default color' }}
+            />
+            <Checkbox
+              defaultChecked
+              size="small"
+              inputProps={{ 'aria-label': 'checkbox with small size' }}
+            />
+          </div>
+          <br />
+          <FormControl component="fieldset">
+            <FormLabel component="legend">Gender</FormLabel>
+            <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+              <FormControlLabel value="female" control={<Radio />} label="Female" />
+              <FormControlLabel value="male" control={<Radio />} label="Male" />
+              <FormControlLabel value="other" control={<Radio />} label="Other" />
+              <FormControlLabel value="disabled" disabled control={<Radio />} label="(Disabled option)" />
+            </RadioGroup>
+          </FormControl>
         </center>
       </main>
     </div>
