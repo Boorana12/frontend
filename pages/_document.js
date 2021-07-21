@@ -18,10 +18,10 @@ export default class MyDocument extends Document {
                         {/* Theme style */}
                         <link rel="stylesheet" href="dist/css/adminlte.min.css" />
                     </div>
-
                 </Head>
-                <body>
-
+                <body className="hold-transition sidebar-mini">
+                    <Main />
+                    <NextScript />
                 </body>
             </html>
         )
