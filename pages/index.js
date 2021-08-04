@@ -1,8 +1,10 @@
 import React from 'react'
-import AdminContent from '../components/layouts/admin.content'
-import AdminFooter from '../components/layouts/admin.footer'
+import Head from 'next/head';
+import Link from 'next/link';
 import AdminHeader from '../components/layouts/admin.header'
-import AdminSidebar from '../components/layouts/admin.sidebar'
+import AdminSidebar from '../components/layouts/admin.sidebar';
+import AdminContent from '../components/layouts/admin.content';
+import AdminFooter from '../components/layouts/admin.footer';
 
 const Home = () => {
     return (
@@ -12,7 +14,6 @@ const Home = () => {
             <AdminContent />
             <AdminFooter />
         </div>
-
     )
 }
 
