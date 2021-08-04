@@ -7,7 +7,7 @@ const AdminHeader = () =>{
       <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
     </li>
     <li className="nav-item d-none d-sm-inline-block">
-      <a href="index3.html" className="nav-link">หน้าแรก</a>
+      <a href="/" className="nav-link">หน้าแรก</a>
     </li>
     <li className="nav-item d-none d-sm-inline-block">
       <a href="#" className="nav-link">ติดต่อเรา</a>
