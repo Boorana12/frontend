@@ -43,4 +43,3 @@ git push -u origin main
 
 --RUN APP---
 npm run dev
-npn run develop
