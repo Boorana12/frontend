@@ -58,8 +58,8 @@ const Users = ({ users, error }) => {
                                 <td>{data.Lastname}</td>
                                 <td>{data.Username}</td>
                                 <td>{data.Password}</td>
-                                <td></td>
-                                <td></td>
+                                <td>แก้ไข</td>
+                                <td>ลบ</td>
                               </tr>
                             ))}
                           </tbody>

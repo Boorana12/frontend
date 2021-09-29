@@ -21,10 +21,10 @@ const Login = () => {
                     {/* /.login-logo */}
                     <div className="card">
                         <div className="card-body login-card-body">
-                            <p className="login-box-msg">Sign in to start your session</p>
+                            <p className="login-box-msg">ล็อกอิน เข้าสู่ระบบ</p>
                             <form action="../../index3.html" method="post">
                                 <div className="input-group mb-3">
-                                    <input type="email" className="form-control" placeholder="Email" />
+                                    <input type="email" className="form-control" placeholder="Username" />
                                     <div className="input-group-append">
                                         <div className="input-group-text">
                                             <span className="fas fa-envelope" />
@@ -44,13 +44,13 @@ const Login = () => {
                                         <div className="icheck-primary">
                                             <input type="checkbox" id="remember" />
                                             <label htmlFor="remember">
-                                                Remember Me
+                                                จำการเข้าระบบ
                                             </label>
                                         </div>
                                     </div>
                                     {/* /.col */}
                                     <div className="col-4">
-                                        <button type="submit" className="btn btn-primary btn-block">Sign In</button>
+                                        <button type="submit" className="btn btn-primary btn-block">เข้าสู่ระบบ</button>
                                     </div>
                                     {/* /.col */}
                                 </div>
@@ -58,10 +58,10 @@ const Login = () => {
                             <div className="social-auth-links text-center mb-3">
                                 <p>- OR -</p>
                                 <a href="#" className="btn btn-block btn-primary">
-                                    <i className="fab fa-facebook mr-2" /> Sign in using Facebook
+                                    <i className="fab fa-facebook mr-2" /> เข้าสู่ระบบด้วย Facebook
                                 </a>
                                 <a href="#" className="btn btn-block btn-danger">
-                                    <i className="fab fa-google-plus mr-2" /> Sign in using Google+
+                                    <i className="fab fa-google-plus mr-2" /> เข้าสู่ระบบด้วย Google+
                                 </a>
                             </div>
                             {/* /.social-auth-links */}
