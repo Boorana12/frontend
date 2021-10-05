@@ -1,6 +1,7 @@
 import React from 'react';
-import AdminHOC from '../components/layouts/admin.hoc';
+import AdminHOC from '../../components/layouts/admin.hoc';
 import axios from 'axios'
+import Link from 'next/link'
 
 const Users = ({ users, error }) => {
   if (error) {
@@ -45,7 +46,6 @@ const Users = ({ users, error }) => {
                               <th>Firstname</th>
                               <th>Lastname</th>
                               <th>Username</th>
-                              <th>Password</th>
                               <th>Edit</th>
                               <th>Delete</th>
                             </tr>
@@ -57,9 +57,8 @@ const Users = ({ users, error }) => {
                                 <td>{data.Firstname}</td>
                                 <td>{data.Lastname}</td>
                                 <td>{data.Username}</td>
-                                <td>{data.Password}</td>
-                                <td>แก้ไข</td>
-                                <td>ลบ</td>
+                                <td className="text-center"><Link href={`/users/edit/${data.id}`}><a className="btn btn-warning">แก้ไข</a></Link></td>
+                                <td className="text-center"><Link href="#"><a className="btn btn-danger">ลบ</a></Link></td>
                               </tr>
                             ))}
                           </tbody>

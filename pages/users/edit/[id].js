@@ -1,54 +1,20 @@
-import React from 'react'
+import React from 'react';
+import AdminHOC from '../../../components/layouts/admin.hoc';
+import axios from 'axios'
 import Link from 'next/link'
-import Axios from 'axios';
-import { useState } from 'react'; //เก็บข้อมูลไว้ในตัวแปร state
-import Swal from 'sweetalert2'
-const Register = () => {
 
-    //if (error) {
-    //   return <div>An error occured: {error.message}</div>;
-    //}
-    const [firstname, setfirstName] = useState("");
-    const [lastname, setlastName] = useState("");
-    const [username, setuserName] = useState("");
-    const [password, setPassword] = useState("");
-
-    const addMember = () => {
-        Axios.post('http://localhost:1337/members', {
-            Firstname: firstname,
-            Lastname: lastname,
-            Username: username,
-            Password: password
-
-        })
-            .then(function (response) {
-                console.log(response);
-                Swal.fire({
-                    icon: 'success',
-                    title: '<h3>บันทึกข้อมูลเรียบร้อยแล้ว</h3>',
-                    showConfirmButton: false,
-                    timer: 2000
-                }).then(function () {
-                    window.location = "./";
-                });
-            })
-            .catch(function (error) {
-                console.log(error);
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'เกิดข้อผิดพลาด!',
-                    icon: 'error',
-                    confirmButtonText: 'ตกลง'
-                })
-            });
-    }
-    return (
-        <div>
-            <body class="hold-transition register-page">
+const Edituser = ({ users, error }) => {
+  if (error) {
+    return <div>An error occured: {error.message}</div>;
+  }
+  return (
+    <div>
+      <AdminHOC>
+      <body class="hold-transition register-page">
                 <div className="register-box">
                     <div className="card">
                         <div className="card-body register-card-body">
-                            <p className="login-box-msg">สมัครสมาชิก</p>
+                            <p className="login-box-msg">แก้ไขข้อมูลสมาชิก</p>
                             <form action="/" method="post">
                                 <div className="input-group mb-3">
                                     <input type="text" className="form-control" placeholder="ชื่อ" onChange={(event) => { setfirstName(event.target.value) }} />
@@ -82,24 +48,9 @@ const Register = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="row">
-                                    <div className="col-8">
-                                        <div className="icheck-primary">
-                                            <input type="checkbox" id="agreeTerms" name="terms" defaultValue="agree" />
-                                            <label htmlFor="agreeTerms">
-                                                &nbsp;ยอมรับ <a href="#">เงื่อนไข</a>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    {/* /.col */}
-                                </div>
                             </form>
                             <div className="social-auth-links text-center">
-                                <button type="button" class="btn btn-primary" onClick={addMember}>บันทึก</button>
-                                <br />
-                                <Link href="/login">
-                                    <a className="text-center">ฉันมีบัญชีอยู่แล้ว</a>
-                                </Link>
+                                <button type="button" class="btn btn-primary">ปรับปรุงข้อมูล</button>
                             </div>
                         </div>
                         {/* /.form-box */}
@@ -108,9 +59,19 @@ const Register = () => {
                 {/* /.register-box */}
 
             </body>
-
-        </div>
-    )
+      </AdminHOC>
+    </div>
+  )
 }
 
-export default Register;
+Edituser.getInitialProps = async ctx => {
+  try {
+    const res = await axios.get('http://localhost:1337/members');
+    const users = res.data;
+    return { users };
+  } catch (error) {
+    return { error };
+  }
+};
+
+export default Edituser
